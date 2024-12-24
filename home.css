@@ -624,7 +624,7 @@ header h2 {
     .navbar ul li a {
         padding: 10px;
         color: white;
-        font-size: 16px;
+        font-size: 5px;
     }
 
     .navbar ul li a:hover {
