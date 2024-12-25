@@ -132,10 +132,10 @@
                 </div>
                 <div class="product" data-name="Timex Men's New Version Watch" data-price="Rs.71,900">
                     <img src="./ti-4.webp" alt="Watch 1">
-                    <div class="product-itle">Timex Men's New Version Watch</div>
+                    <div class="product-title">Timex Men's New Version Watch</div>
                     <div class="product-price">Rs.71,900</div>
                     <a href="buy.html" class="shop-now">Shop Now</a>
-                    <button class="add-to-cart"></button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                
                 <div class="product" data-name="Timex Fashion Men's E Class Green Dial Round Case Multifunction Watch" data-price="Rs.75,000">
@@ -310,91 +310,84 @@
                     navLinks.classList.toggle('show');
                 }
             </script>
-        <script>
-document.addEventListener('DOMContentLoaded', () => {
-    // JavaScript for Contact Popup
-    const contactIcon = document.getElementById('icon-contact');
-    const contactPopup = document.getElementById('contact-popup');
-    const closeContactBtn = document.getElementById('close-contact');
-
-    // Show Contact Popup
-    contactIcon.addEventListener('click', () => {
-        contactPopup.style.display = 'block';
-    });
-
-    // Close Contact Popup
-    closeContactBtn.addEventListener('click', () => {
-        contactPopup.style.display = 'none';
-    });
-
-    // JavaScript for Cart Functionality
-    let cart = []; // Array to hold cart items
-    const cartPopup = document.getElementById('cart-popup');
-    const cartItemsContainer = document.getElementById('cart-items');
-    const closeCartBtn = document.getElementById('close-cart');
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-    // Open Cart Popup
-    const openCart = () => {
-        cartPopup.style.display = 'block';
-    };
-
-    // Close Cart Popup
-    closeCartBtn.addEventListener('click', () => {
-        cartPopup.style.display = 'none';
-    });
-
-    // Add item to the cart array
-    const addToCart = (name, price) => {
-        cart.push({ name, price });
-        updateCartDisplay();
-    };
-
-    // Update the cart items in the popup
-    const updateCartDisplay = () => {
-        cartItemsContainer.innerHTML = ''; // Clear existing items
-
-        cart.forEach((item, index) => {
-            const cartItem = document.createElement('li');
-            cartItem.textContent = `${item.name} - Rs. ${item.price}`;
-
-            // Add "Remove" button
-            const removeButton = document.createElement('button');
-            removeButton.textContent = 'Remove';
-            removeButton.style.marginLeft = '10px';
-            removeButton.onclick = () => removeItem(index);
-            cartItem.appendChild(removeButton);
-
-            cartItemsContainer.appendChild(cartItem);
-        });
-
-        // Show total price at the bottom of the cart
-        const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
-        const totalPriceElement = document.createElement('div');
-        totalPriceElement.style.marginTop = '20px';
-        totalPriceElement.textContent = `Total Price: Rs. ${totalPrice}`;
-        cartItemsContainer.appendChild(totalPriceElement);
-    };
-
-    // Remove item from the cart array
-    const removeItem = (index) => {
-        cart.splice(index, 1); // Remove item from cart
-        updateCartDisplay(); // Refresh cart display
-    };
-
-    // Add event listeners to all "Add to Cart" buttons
-    addToCartButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const product = button.closest('.product');
-            const name = product.getAttribute('data-name');
-            const priceString = product.getAttribute('data-price').replace('Rs.', '').trim(); // Remove "Rs." and trim spaces
-            const price = parseFloat(priceString); // Convert to number
-            addToCart(name, price);
-            openCart();
-        });
-    });
-});
-</script>
+            <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // JavaScript for Contact Popup
+                const contactIcon = document.getElementById('icon-contact');
+                const contactPopup = document.getElementById('contact-popup');
+                const closeContactBtn = document.getElementById('close-contact');
+            
+                // Show Contact Popup
+                contactIcon.addEventListener('click', () => {
+                    contactPopup.style.display = 'block';
+                });
+            
+                // Close Contact Popup
+                closeContactBtn.addEventListener('click', () => {
+                    contactPopup.style.display = 'none';
+                });
+            
+                // JavaScript for Cart Functionality
+                let cart = []; // Array to hold cart items
+                const cartPopup = document.getElementById('cart-popup');
+                const cartItemsContainer = document.getElementById('cart-items');
+                const closeCartBtn = document.getElementById('close-cart');
+                const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            
+                // Open Cart Popup
+                const openCart = () => {
+                    cartPopup.style.display = 'block';
+                };
+            
+                // Close Cart Popup
+                closeCartBtn.addEventListener('click', () => {
+                    cartPopup.style.display = 'none';
+                });
+            
+                // Add item to the cart array and update display
+                const addToCart = (name, price) => {
+                    cart.push({ name, price });
+                    updateCartDisplay();
+                    alert(`${name} added to cart!`);
+                };
+            
+                // Update the cart items in the popup
+                const updateCartDisplay = () => {
+                    cartItemsContainer.innerHTML = ''; // Clear existing items
+            
+                    cart.forEach((item, index) => {
+                        const cartItem = document.createElement('li');
+                        cartItem.textContent = `${item.name} - Rs. ${item.price}`;
+            
+                        // Add a Remove button to each cart item
+                        const removeButton = document.createElement('button');
+                        removeButton.textContent = 'Remove';
+                        removeButton.style.marginLeft = '10px';
+                        removeButton.onclick = () => removeItem(index);
+                        cartItem.appendChild(removeButton);
+            
+                        cartItemsContainer.appendChild(cartItem);
+                    });
+                };
+            
+                // Remove item from the cart array and update display
+                const removeItem = (index) => {
+                    cart.splice(index, 1); // Remove item from cart
+                    updateCartDisplay(); // Refresh cart display
+                };
+            
+                // Add event listeners to all "Add to Cart" buttons
+                addToCartButtons.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const product = button.closest('.product');
+                        const name = product.getAttribute('data-name');
+                        const price = product.getAttribute('data-price');
+                        addToCart(name, price);
+                    });
+                });
+            });
+        </script>
+                
         </body>
     </html>
     </body>
