@@ -585,11 +585,11 @@ header h2 {
 .navbar ul {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 5px;
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size: 25px;
+    font-size: 10px;
 }
 
 .navbar li {
@@ -614,17 +614,62 @@ header h2 {
     .icon {
         display: block;
     }
+   .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   header {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Add spacing between the logo and the search bar */
+}
+.logo img {
+    width: 70px; /* Adjust logo size for mobile */
+    height: 50px;
+}
+.search-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    padding: 0 10px;
+}
 
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 5px;
+    width: 60%; /* Adjust width to fit icons */
+}
+
+.search-bar input {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
     .navbar ul {
         display: none;
         flex-direction: column;
-        background-color: rgb(66, 66, 66);
+        background-color: rgb(209, 203, 203);
         position: absolute;
         top: 60px;
         left: 0;
-        width: 100%;
+        width: 50%;
         padding: 10px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(180, 177, 177, 0.2);
         z-index: 1000;
     }
 
@@ -634,8 +679,10 @@ header h2 {
 
     .navbar ul li a {
         padding: 10px;
-        color: white;
+        color: rgb(53, 52, 52);
+        background-color:rgb(209, 203, 203) ;
         font-size: 5px;
+        font-size: 1rem;
     }
 
     .navbar ul li a:hover {
@@ -645,10 +692,6 @@ header h2 {
 }
 
 
-body {
-    margin: 0;
-    padding-top: 60px; /* Match header height */
-}
    </style>
  </head>
 <body>
