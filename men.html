@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="men.css" rel="stylesheet">
+        <link rel="stylesheet" type="" href="home.css">
+        <link rel="stylesheet" href="cart.html">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
@@ -65,9 +67,8 @@
         <header>
             <nav class="navbar">
             <div class="logo">
-                <img src="./logo.jpg" alt="">
+                <img src="./logo.png" alt="">
             </div>
-            <h2><span id="letter">S</span>TARRY <span id="letter2">H</span>OURS</h2>
             <ul id="nav-links">
                 <li><a href="home.html#brands">Brand</a></li>
                 <li><a href="men.html">Men</a></li>
@@ -90,9 +91,10 @@
 
 
           </div>
-         <span id="icon-contact" class="material-icons">person</span>
-          <span id="icon-like" class="material-icons">favorite</span>
-         <span id="icon-like" class="material-icons">shopping_cart</span>
+         <span id="icon-contact" class="material-icons">phone</span>
+         <span id="icon-like" class="material-icons">favorite</span>
+<span id="icon-shopping_cart" class="material-icons">shopping_cart</span>
+
 </div><div id="contact-popup" class="popup-card">
     <h3>Contact Us</h3>
     <p>Email: support@luxurywatches.com</p>
@@ -105,7 +107,7 @@
     <button id="close-cart" class="close-btn">Close</button>
 </div>
         </header>
-        <section class="hero">
+        <section class="herom">
             <img src="./men.gif" alt="Men"> 
             <div class="hero-text">
                 "Timeless Elegance: <br>Men's Watches Collection"
@@ -128,14 +130,14 @@
                     <a href="buy.html" class="shop-now">Shop Now</a>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                    <div class="product" data-name="Digital Beige Dial Watch" data-price="Rs.76,000">
+                    <div class="product" data-name="Digital Beige Dial Watch" data-price="76000">
                     <img src="./watch3.webp" alt="Watch 3">
                     <div class="product-title">Digital Beige Dial Watch</div>
                     <div class="product-price">Rs.76,000</div>
                     <a href="buy.html" class="shop-now">Shop Now</a>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product" data-name="V-Legend Chrono Watch" data-price="1,39,000">
+                <div class="product" data-name="V-Legend Chrono Watch" data-price="139000">
                     <img src="./gc-w4.webp" alt="Watch 1">
                     <div class="product-title">V-Legend Chrono Watch</div>
                     <div class="product-price">Rs.1,39,000</div>
@@ -143,14 +145,14 @@
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
                
-                <div class="product" data-name="Versace New Men Watch" data-price="36,222">
+                <div class="product" data-name="Versace New Men Watch" data-price="36222">
                     <img src="./v-1.avif" alt="Watch 1">
                     <div class="product-title">Versace New Men Watch</div>
                     <div class="product-price">Rs.36,222</div>
                     <a href="buy.html" class="shop-now">Shop Now</a>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product" data-name="Timex Dial Grey Watch" data-price="Rs.45,222">
+                <div class="product" data-name="Timex Dial Grey Watch" data-price="45222">
                     <img src="./ti-4.webp" alt="Watch 1">
                     <div class="product-title">Timex Dial Grey Watch</div>
                     <div class="product-price">Rs.45,222</div>
@@ -293,6 +295,35 @@
             });
         });
     </script>
-            
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartIcon = document.getElementById('icon-shopping_cart');
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add item to cart and save to localStorage
+    const addToCart = (name, price) => {
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+    };
+
+    addToCartButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const product = button.closest('.product');
+            const name = product.getAttribute('data-name');
+            const price = product.getAttribute('data-price');
+            addToCart(name, price);
+        });
+    });
+
+    // Navigate to cart page on cart icon click
+    cartIcon.addEventListener('click', () => {
+        window.location.href = 'cart.html';
+    });
+});
+
+      </script>      
     </body>
 </html>
