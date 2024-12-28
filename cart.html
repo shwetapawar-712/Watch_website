@@ -97,7 +97,7 @@
         <div class="empty-cart" id="empty-cart-message">Your cart is empty!</div>
         <div class="total-price" id="total-price" style="display: none;"></div>
         <div class="back-home" id="back-home-section" style="display: none;">
-            <button id="back-home-btn">Back to Home</button>
+            <button id="back-home-btn">Checkout</button>
         </div>
     </div>
     <script>
@@ -112,8 +112,8 @@
        
            const calculateTotalPrice = () => {
                return cart.reduce((total, item) => {
-                   const itemPrice = parseFloat(item.price); // Ensure price is a number
-                   return total + (isNaN(itemPrice) ? 0 : itemPrice); // Ignore invalid prices
+                   const itemPrice = parseFloat(item.price); 
+                   return total + (isNaN(itemPrice) ? 0 : itemPrice); 
                }, 0);
            };
        
@@ -169,7 +169,7 @@
            });
        
            document.getElementById('back-home-btn').addEventListener('click', () => {
-               window.location.href = 'home.html'; // Redirect to home page
+               window.location.href = 'buy.html';
            });
        
            updateCartDisplay();
