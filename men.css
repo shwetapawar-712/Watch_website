@@ -4,23 +4,25 @@ body{
     background-color: white;
 }
 header {
-    position: fixed;
+    position: relative;
     top: 0; 
     width: 100%; 
     z-index: 1000;
     display: flex ;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(32, 33, 38);
     max-width: auto;
     height: 80px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(45, 44, 44, 0.2);
     }
     header h2{
-        color: rgb(246, 240, 240);
+        color: rgb(29, 28, 28);
         margin: 0;
         font-size: 1.5rem;
         font-family:"Monotype Corsiva", cursive; ;
+       
     }  
     .navbar {
         display: flex;
@@ -35,33 +37,46 @@ header {
         font-size: 28px;
           cursor: pointer;
         }
-        @media (max-width: 480px) {
-            .product {
-                width: 100%; 
-            }
-            .icon {
-                font-size: 24px; /* Smaller toggle icon for smaller screens */
-                gap: 10px;
-            }
-            .banner {
-                padding: 10px 0;
-                height: 30vh; 
-                background-size: contain;
-            }
-            #icon-contact, #icon-like, #icon-shopping_cart {
-                font-size: 18px; /* Even smaller icon size */
-                padding: 6px; /* Reduce padding */
-            }
-        }
         
       @media (max-width: 768px) {
+        .icon {
+          display: block;
+        }
         .product {
             width: 48%; 
         }
         .navbar h2{
             display: none;
         }
+        .navbar ul {
+          display: none;
+          flex-direction: column;
+          background-color: #f1f0ed; 
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          padding: 10px 0;
+          border-top: 1px solid #ccc;
+          width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
         
+        }
+        .navbar ul.show {
+          display: flex;
+        }
+        .navbar .icon {
+            display: block;
+            cursor: pointer;
+        }
+            .navbar ul li a {
+                background-color: #f0f0f0; 
+            color: black; 
+            margin: 5px 0; 
+            }navbar ul li a:hover {
+            background-color: #ddd; 
+        }
         }
         @media (min-width: 768px) {
             .navbar ul {
@@ -71,7 +86,6 @@ header {
             .icon {
                 display: none; 
     }}
-
     .navbar ul {
         display: flex;
         flex-direction: row;
@@ -111,86 +125,74 @@ header {
         align-items: center;
         flex-wrap: wrap;
     }
-    .logo img{
-        width: 80px;
-        height: 7vh;
-        border-radius: 100%;
-        padding: 20px;}
-        #letter,#letter2 {
-            font-family:"Monotype Corsiva", cursive;
-            color: rgb(187, 211, 211);
-            margin: 0;
-            font-size: 4rem;}
-         header h2{
-            color: rgb(239, 235, 235);
-            margin: 0;
-            font-size: 2.rem;
-            font-family:"Monotype Corsiva", cursive; ;
-         }
-        .search-block {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .search-bar {
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-        }
-        .search-bar input {
-            width: 300px;
-            padding: 10px 40px 10px 10px; 
-            font-size: 16px;
-            border: 5px solid #373737;
-            border-radius: 10px;
-        }
-        .search-bar img {
-            position: absolute;
-            right: 10px;
-            height: 30px;
-            width: 30px;
-            cursor: pointer;
-            padding: 5px;
-            color: #060606;
-            object-fit: cover;
-        }
+   
+   
      header h2{
         color: rgb(239, 235, 235);
         margin: 0;
         font-size: 2.rem;
         font-family:"Monotype Corsiva", cursive; ;
      }
-    
-     #icon-contact, #icon-like,#icon-shopping_cart{
-        font-size: 30px; 
-        color: rgb(207, 203, 203); 
-        cursor: pointer;
+    .search-block {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-right: 10px;
+    }
+    .search-bar {
+        position: relative;
+        display: flex;
+        align-items: center;
         padding: 10px;
     }
-    
+    .search-bar input {
+        width: 300px;
+        padding: 10px 40px 10px 10px; 
+        font-size: 16px;
+        border: 5px solid #373737;
+        border-radius: 10px;
+    }
+    .search-bar img {
+        position: absolute;
+        right: 10px;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        padding: 5px;
+        color: #060606;
+        object-fit: cover;
+    }
+    .logo img {
+        width: 150px; 
+        height: 100px; 
+        object-fit: contain; 
+        padding: 10px;
+    }
+   
     .navbar .icon-container {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        gap: 8px; /* Adjust gap for consistent spacing */
+        gap: 0px; /* Reduced the gap to bring icons closer */
     }
     
-    
-    .hero ,.hero1{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(214, 212, 175);
+    #icon-contact,#icon-like, #icon-shopping_cart {
+        font-size: 28px; /* Slightly smaller for better fit */
+        color: rgb(207, 203, 203);
+        padding: 20px; /* Removed padding */
+        margin: 0 10px; /* Removed margin to ensure no extra spacing */
+        cursor: pointer;
+        gap: 2px;
     }
-    .hero1{
+    .herom,.hero1{
         position: sticky;
         display: flex;
         align-items: center;
         justify-content: center;
-      background-color: rgb(244, 239, 242);
+      background-color: rgb(206, 211, 211);
     }
-    .hero img,.hero1 img{
+    
+    .herom img,.hero1 img{
          background-size: cover; 
          justify-content: center;
          padding: 20px;
@@ -200,6 +202,7 @@ header {
    .hero-text {
     font-family: "Monotype Corsiva", cursive;
     font-size: 4.6rem;
+    color: rgb(36, 35, 35);
    }
 h2{
     font-family: sans-serif;
@@ -207,16 +210,7 @@ h2{
     font-weight: 1.2rem;
     text-align: center;
 }
-body {
-    margin: 0;
-    background-color: white;
-}
 
-h2 {
-    font-family: sans-serif;
-    font-size: 2rem;
-    text-align: center;
-}
 .products {
     padding: 30px; 
     box-sizing: border-box;
@@ -335,8 +329,19 @@ hr {
         grid-template-columns: repeat(2, 1fr); 
         gap: 20px;
     }
-.section-title{
+.section-titles{
     font-size: 50px;
+    height: 5vh;
+}
+.section-titles{
+    background-color: #f5caf6;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 8vh;
+    text-align: center;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
     .product {
         width: 100%; 
@@ -509,34 +514,35 @@ header h2 {
     .icon {
         display: block;
     }
-   header {
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 10px;
-}
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px; 
-}
-.logo img {
-    width: 70px; 
-    height: 50px;
-}
-.search-block span {
-    margin-left: 10px;
-}
 
-.search-block span {
-    margin-left: 15px;
-}
+    header {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px;
+    }
 
-.search-bar {
-   display: none;
-}
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px; 
+    }
+
+    .logo img {
+        width: 350px; 
+        height: 80px;
+    }
+
+    .search-block span {
+        margin-left: 15px;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
     .navbar ul {
         display: none;
         flex-direction: column;
@@ -557,32 +563,59 @@ header h2 {
     .navbar ul li a {
         padding: 10px;
         color: rgb(53, 52, 52);
-        background-color:rgb(209, 203, 203) ;
-        font-size: 5px;
+        background-color: rgb(209, 203, 203);
         font-size: 1rem;
     }
 
     .navbar ul li a:hover {
         background-color: #333;
-        color: #ff8c00;}
-        #icon-contact, #icon-like, #icon-shopping_cart {
-            font-size: 25px; 
-            color: rgb(207, 203, 203);
-            padding: 12px; 
-            margin: 0;
-            cursor: pointer;
-        }
+        color: #ff8c00;
+    }
+
+    .navbar .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0px; /* Ensure there is no gap between icons */
+        margin: 0; /* Remove extra margins */
+        padding: 0; /* Remove any padding */
+    }
+
+    #icon-contact, #icon-shopping_cart {
+        display: none;
+    }
+
     .navbar {
         display: flex;
         flex-wrap: wrap;
-        gap: 5px; 
+        gap: 10px; 
         align-items: center; 
-            flex-direction: column; 
-        }
+        flex-direction: column; 
+    }
+
+    .hero {
+        margin-top: 30px; 
+        margin-bottom: 40px; 
+        align-items: flex-start;
+    }
+
     .logo {
         position: absolute;
         justify-content: space-between;
-        top: 10%;
-        left: 10%;
+        top: 5%;
+        left: 20%;
         align-items: center;
-    }}
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        margin: 10px 80px;
+        text-align: left;
+    }
+
+    .hero p {
+        text-align: left;
+        margin: 10px 80px;
+        font-size: 1rem;
+    }
+}
