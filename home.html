@@ -1028,32 +1028,54 @@ header h2 {
     </script>
       <script>
         document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    const cartIcon = document.getElementById('icon-shopping_cart');
+    consdocument.addEventListener('DOMContentLoaded', () => {
+    // Contact Popup
+    const contactIcon = document.getElementById('icon-contact');
+    const contactPopup = document.getElementById('contact-popup');
+    const closeContactBtn = document.getElementById('close-contact');
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const overlay = document.createElement('div');
+    overlay.classList.add('popup-overlay');
+    document.body.appendChild(overlay);
 
-    // Add item to cart and save to localStorage
-    const addToCart = (name, price) => {
-        cart.push({ name, price });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert(`${name} added to cart!`);
-    };
-
-    addToCartButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const product = button.closest('.product');
-            const name = product.getAttribute('data-name');
-            const price = product.getAttribute('data-price');
-            addToCart(name, price);
-        });
+    // Show Contact Popup
+    contactIcon.addEventListener('click', () => {
+        contactPopup.style.display = 'flex';
+        overlay.style.display = 'block';
     });
 
-    // Navigate to cart page on cart icon click
+    // Close Contact Popup
+    closeContactBtn.addEventListener('click', () => {
+        contactPopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    // Cart Popup
+    const cartIcon = document.getElementById('icon-shopping_cart');
+    const cartPopup = document.getElementById('cart-popup');
+    const closeCartBtn = document.getElementById('close-cart');
+
+    // Show Cart Popup
     cartIcon.addEventListener('click', () => {
-        window.location.href = 'cart.html';
+        cartPopup.style.display = 'flex';
+        overlay.style.display = 'block';
+    });
+
+    // Close Cart Popup
+    closeCartBtn.addEventListener('click', () => {
+        cartPopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    // Close popup when clicking outside
+    overlay.addEventListener('click', () => {
+        contactPopup.style.display = 'none';
+        cartPopup.style.display = 'none';
+        overlay.style.display = 'none';
     });
 });
+
+
      
         </script>
     </body>
