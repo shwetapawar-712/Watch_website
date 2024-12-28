@@ -924,31 +924,13 @@ header h2 {
                 </div>
              <p class="footer-copy">&copy; 2024 Luxury Watches. All rights reserved.</p></div>
         </footer>
-        <script>
+       <script>
             function toggleMenu() {
                 const navLinks = document.getElementById('nav-links');
                 navLinks.classList.toggle('show');
             }
         </script>
         <script src="script.js"></script>
-        <script>
-             document.addEventListener('DOMContentLoaded', () => {
-             // JavaScript for Contact Popup
-             const contactIcon = document.getElementById('icon-contact');
-             const contactPopup = document.getElementById('contact-popup');
-             const closeContactBtn = document.getElementById('close-contact');
-         
-             // Show Contact Popup
-             contactIcon.addEventListener('click', () => {
-                 contactPopup.style.display = 'block';
-             });
-         
-             // Close Contact Popup
-             closeContactBtn.addEventListener('click', () => {
-                 contactPopup.style.display = 'none';
-             });
-            });
-        </script>
         <script>
         document.addEventListener('DOMContentLoaded', () => {
             // JavaScript for Contact Popup
@@ -973,22 +955,13 @@ header h2 {
             const closeCartBtn = document.getElementById('close-cart');
             const addToCartButtons = document.querySelectorAll('.add-to-cart');
         
-            // Open Cart Popup
-            const openCart = () => {
-                cartPopup.style.display = 'block';
-            };
-        
-            // Close Cart Popup
-            closeCartBtn.addEventListener('click', () => {
-                cartPopup.style.display = 'none';
-            });
-        
             // Add item to the cart array and update display
             const addToCart = (name, price) => {
                 cart.push({ name, price });
                 updateCartDisplay();
                 alert(`${name} added to cart!`);
             };
+        });
         
             // Update the cart items in the popup
             const updateCartDisplay = () => {
@@ -1024,60 +997,36 @@ header h2 {
                     addToCart(name, price);
                 });
             });
-        });
     </script>
       <script>
         document.addEventListener('DOMContentLoaded', () => {
-    consdocument.addEventListener('DOMContentLoaded', () => {
-    // Contact Popup
-    const contactIcon = document.getElementById('icon-contact');
-    const contactPopup = document.getElementById('contact-popup');
-    const closeContactBtn = document.getElementById('close-contact');
-
-    const overlay = document.createElement('div');
-    overlay.classList.add('popup-overlay');
-    document.body.appendChild(overlay);
-
-    // Show Contact Popup
-    contactIcon.addEventListener('click', () => {
-        contactPopup.style.display = 'flex';
-        overlay.style.display = 'block';
-    });
-
-    // Close Contact Popup
-    closeContactBtn.addEventListener('click', () => {
-        contactPopup.style.display = 'none';
-        overlay.style.display = 'none';
-    });
-
-    // Cart Popup
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
     const cartIcon = document.getElementById('icon-shopping_cart');
-    const cartPopup = document.getElementById('cart-popup');
-    const closeCartBtn = document.getElementById('close-cart');
 
-    // Show Cart Popup
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add item to cart and save to localStorage
+    const addToCart = (name, price) => {
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+    };
+
+    addToCartButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const product = button.closest('.product');
+            const name = product.getAttribute('data-name');
+            const price = product.getAttribute('data-price');
+            addToCart(name, price);
+        });
+    });
+
+    // Navigate to cart page on cart icon click
     cartIcon.addEventListener('click', () => {
-        cartPopup.style.display = 'flex';
-        overlay.style.display = 'block';
-    });
-
-    // Close Cart Popup
-    closeCartBtn.addEventListener('click', () => {
-        cartPopup.style.display = 'none';
-        overlay.style.display = 'none';
-    });
-
-    // Close popup when clicking outside
-    overlay.addEventListener('click', () => {
-        contactPopup.style.display = 'none';
-        cartPopup.style.display = 'none';
-        overlay.style.display = 'none';
+        window.location.href = 'cart.html';
     });
 });
-
-
-     
-        </script>
+      </script>
     </body>
     </html>
    
