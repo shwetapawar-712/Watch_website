@@ -8,23 +8,23 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <style>
-    /* General Styles */
-body{
+  <style>
+      body{
     margin: 0;
     background-color: white;
 }
 header {
-    position: fixed;
+    position: relative;
     top: 0; 
     width: 100%; 
     z-index: 1000;
     display: flex ;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(29, 30, 40);
     max-width: auto;
     height: 80px;
+    margin-bottom: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
     header h2{
@@ -32,6 +32,7 @@ header {
         margin: 0;
         font-size: 1.5rem;
         font-family:"Monotype Corsiva", cursive; ;
+       
     }  
     .navbar {
         display: flex;
@@ -134,17 +135,8 @@ header {
         align-items: center;
         flex-wrap: wrap;
     }
-    .logo img{
-        width: 80px;
-        height: 7vh;
-        border-radius: 100%;
-        padding: 20px;
-    }
-    #letter,#letter2 {
-        font-family:"Monotype Corsiva", cursive;
-        color: rgb(187, 211, 211);
-        margin: 0;
-        font-size: 4rem;}
+   
+   
      header h2{
         color: rgb(239, 235, 235);
         margin: 0;
@@ -180,14 +172,13 @@ header {
         object-fit: cover;
     }
     .logo img {
-        width: 100px; 
+        width: 150px; 
         height: 100px; 
         object-fit: contain; 
-        border-radius: 50%; 
         padding: 10px;
     }
    
-    #icon-contact, #icon-like,#icon-shopping_cart{
+    #icon-contact,#icon-shopping_cart{
         font-size: 30px; 
         color: rgb(207, 203, 203); 
         cursor: pointer;
@@ -195,38 +186,44 @@ header {
     }
 /* Hero Section */
 .hero {
-    background: url('./hero.jpg') no-repeat center center/cover;
+    background: url('./hero1.jpg') no-repeat center center/cover;
     color: #fff;
-    text-align: center;
     padding: 100px 0;
     height: 30vh;
+    margin-top: 50px; 
+    margin-bottom: 40px;
 }
 .hero h1 {
     font-size: 2.5rem;
-    margin: 10px 0;
+    margin: 10px 80px;
+    text-align: left;
 }
-.btn, .btn-outline {
+.hero p {
+text-align: left;
+margin: 10px 80px;
+font-size: 1.5rem;
+}
+.btn-outline {
     display: inline-block;
-    margin: 10px;
+    margin: 10px 150px;
     padding: 10px 20px;
     background: #ff8c00;
     color: #fff;
     border-radius: 5px;
+
 }
-.btn-outline {
-    background: transparent;
-    border: 2px solid #ff8c00;
-    color: #ff8c00;
-}
+
 /* Promo Section */
 .promo {
     display: flex;
+    height: 80px;
     justify-content: space-around;
-    background: rgb(168, 159, 117);
+    background: rgb(219, 212, 184);
     text-align: center;
     color: #ccc;
     padding: 0px;
-    margin-bottom: 2px;
+    padding: 20px; /* Increase padding for better spacing */
+    margin-bottom: 20px
 }
 .promo span {
     display: inline-block;
@@ -317,10 +314,7 @@ color: #333;}
         height: 30vh; 
         background-size: contain;
     }
-    #icon-contact, #icon-like, #icon-shopping_cart {
-        font-size: 18px; /* Even smaller icon size */
-        padding: 6px; /* Reduce padding */
-    }
+   
 }
 .banner {
     background: url('./banner.jpg') no-repeat center center/cover;
@@ -337,7 +331,7 @@ color: #333;}
 .brands-section h2{
 text-align: center;
 font-family: cursive;
-font-size: 1.5rem;
+font-size: 25px;
 }
 .carousel-container {
     position: relative;
@@ -357,10 +351,18 @@ font-size: 1.5rem;
 .carousel-item {
     flex: 0 0 calc(100% / 4); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background:rgb(159, 156, 156);
+    background: rgb(159, 156, 156);
     border-radius: 8px;
     overflow: hidden;
-text-align: center;}
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    border: 4px solid #ff8c00;
+}
 .carousel-item img {
     width: 100%;
     height: auto;
@@ -636,8 +638,8 @@ header h2 {
     margin-bottom: 10px; 
 }
 .logo img {
-    width: 70px; 
-    height: 50px;
+    width: 350px; 
+    height: 80px;
 }
 .search-block span {
     margin-left: 10px;
@@ -679,7 +681,7 @@ header h2 {
         background-color: #333;
         color: #ff8c00;}
         #icon-contact, #icon-like, #icon-shopping_cart {
-            font-size: 25px; 
+            font-size: 30px; 
             color: rgb(207, 203, 203);
             padding: 12px; 
             margin: 0;
@@ -692,23 +694,37 @@ header h2 {
         align-items: center; 
             flex-direction: column; 
         }
-
+        .hero{
+            margin-top: 30px; 
+            margin-bottom: 40px; 
+            align-items: flex-start;
+        
+        }
     .logo {
         position: absolute;
         justify-content: space-between;
-        top: 20%;
+        top: 5%;
         left: 20%;
         align-items: center;
+    }
+    .hero h1 {
+        font-size: 1.5rem;
+        margin: 10px 80px;
+        text-align: left;
+    }
+    .hero p {
+    text-align: left;
+    margin: 10px 80px;
+    font-size: 1rem;
     }}
- </style>
+</style>
  </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="./logo.jpg" alt="">
+                <img src="./logo.png" alt="">
             </div>
-            <h2><span id="letter">S</span>TARRY <span id="letter2">H</span>OURS</h2>
             <ul id="nav-links">
                 <li><a href="home.html#brands">Brand</a></li>
                 <li><a href="men.html">Men</a></li>
@@ -735,9 +751,8 @@ header h2 {
                 <input type="text" placeholder="Search here...">
                 <img src="./search-icon.png" alt="">
             </div>
-            <span id="icon-contact" class="material-icons">person</span>
-            <span id="icon-like" class="material-icons">favorite</span>
-            <span id="icon-like" class="material-icons">shopping_cart</span>
+            <span id="icon-contact" class="material-icons">phone</span>
+            <span id="icon-shopping_cart" class="material-icons">shopping_cart</span>
         </div>
     </header>
     <section class="hero">
@@ -745,7 +760,6 @@ header h2 {
             <h1>LUXURY DESIGN IN CASTE</h1>
             <p>Always gives you a flawless beauty</p>
             <div class="buttons">
-                <a href="buy.html" class="btn">SHOP NOW</a>
                 <a href="about.html" class="btn-outline">ABOUT US</a>
             </div>
         </div>
@@ -924,6 +938,113 @@ header h2 {
                  contactPopup.style.display = 'none';
              });
             });
+        </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // JavaScript for Contact Popup
+            const contactIcon = document.getElementById('icon-contact');
+            const contactPopup = document.getElementById('contact-popup');
+            const closeContactBtn = document.getElementById('close-contact');
+        
+            // Show Contact Popup
+            contactIcon.addEventListener('click', () => {
+                contactPopup.style.display = 'block';
+            });
+        
+            // Close Contact Popup
+            closeContactBtn.addEventListener('click', () => {
+                contactPopup.style.display = 'none';
+            });
+        
+            // JavaScript for Cart Functionality
+            let cart = []; // Array to hold cart items
+            const cartPopup = document.getElementById('cart-popup');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const closeCartBtn = document.getElementById('close-cart');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+            // Open Cart Popup
+            const openCart = () => {
+                cartPopup.style.display = 'block';
+            };
+        
+            // Close Cart Popup
+            closeCartBtn.addEventListener('click', () => {
+                cartPopup.style.display = 'none';
+            });
+        
+            // Add item to the cart array and update display
+            const addToCart = (name, price) => {
+                cart.push({ name, price });
+                updateCartDisplay();
+                alert(`${name} added to cart!`);
+            };
+        
+            // Update the cart items in the popup
+            const updateCartDisplay = () => {
+                cartItemsContainer.innerHTML = ''; // Clear existing items
+        
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('li');
+                    cartItem.textContent = `${item.name} - Rs. ${item.price}`;
+        
+                    // Add a Remove button to each cart item
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.style.marginLeft = '10px';
+                    removeButton.onclick = () => removeItem(index);
+                    cartItem.appendChild(removeButton);
+        
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            };
+        
+            // Remove item from the cart array and update display
+            const removeItem = (index) => {
+                cart.splice(index, 1); // Remove item from cart
+                updateCartDisplay(); // Refresh cart display
+            };
+        
+            // Add event listeners to all "Add to Cart" buttons
+            addToCartButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const product = button.closest('.product');
+                    const name = product.getAttribute('data-name');
+                    const price = product.getAttribute('data-price');
+                    addToCart(name, price);
+                });
+            });
+        });
+    </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartIcon = document.getElementById('icon-shopping_cart');
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add item to cart and save to localStorage
+    const addToCart = (name, price) => {
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+    };
+
+    addToCartButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const product = button.closest('.product');
+            const name = product.getAttribute('data-name');
+            const price = product.getAttribute('data-price');
+            addToCart(name, price);
+        });
+    });
+
+    // Navigate to cart page on cart icon click
+    cartIcon.addEventListener('click', () => {
+        window.location.href = 'cart.html';
+    });
+});
+     
         </script>
     </body>
     </html>
