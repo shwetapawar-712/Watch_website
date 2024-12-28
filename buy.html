@@ -304,6 +304,14 @@
         popupOverlay.style.display = 'none';
     }
 </script>
-
+<script>
+    orderForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    popupOverlay.style.display = 'block';
+    setTimeout(() => {
+        window.location.href = 'home.html'; 
+    }, 3000);
+});
+</script>
 </body>
 </html>
