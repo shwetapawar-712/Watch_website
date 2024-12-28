@@ -98,8 +98,7 @@ header {
     .navbar li {
         display: inline-block;
     }
-    
-    .navbar a {
+     .navbar a {
         text-decoration: none;
         color: rgb(236, 232, 232);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -113,7 +112,7 @@ header {
     .navbar a:hover {
         color: #ff8c00;
     }
-    .navbar li {
+.navbar li {
         list-style: none;
         display: inline-block; 
         margin: 0 ; 
@@ -124,10 +123,7 @@ header {
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-    }
-   
-   
-    
+    }  
     .search-block {
         display: flex;
         align-items: center;
@@ -186,8 +182,7 @@ header {
             font-size: 1.2 rem;
         }
         .product {
-            width: 48%; 
-        }
+            width: 48%;  }
         }
     @media (max-width: 480px) {
         .product {
@@ -352,8 +347,6 @@ hr {
     flex-wrap: wrap;
 
 }
-
-
 .follow {
     text-align: center;
 }
@@ -527,42 +520,27 @@ header h2 {
     margin: 0;
     font-size: 1.5rem;
     font-family: "Monotype Corsiva", cursive;
-}
-
-/* Navbar Styles */
-
-
-
-
-.navbar a:hover {
+}.navbar a:hover {
     color: #ff8c00;
 }
-
-/* Mobile Menu Icon */
-
-
-/* Mobile Menu */
 @media (max-width: 768px) {
     .icon {
         display: block;
     }
-
-    header {
+ header {
         display: flex;
         flex-direction: row; 
         justify-content: space-between; 
         align-items: center;
         padding: 10px;
     }
-
-    .logo {
+ .logo {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 10px; 
     }
-
-    .logo img {
+ .logo img {
         width: 350px; 
         height: 80px;
     }
@@ -573,10 +551,7 @@ header h2 {
 
     .search-bar {
         display: none;
-    }
-
-    /* Adjust the navbar for mobile */
-    .navbar {
+    }    .navbar {
         display: flex;
         flex-direction: row; /* Ensure it's a row for horizontal layout */
         gap: 10px; /* Control spacing between items */
