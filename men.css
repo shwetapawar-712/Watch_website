@@ -618,4 +618,7 @@ header h2 {
         margin: 10px 80px;
         font-size: 1rem;
     }
+    #icon-like{
+        display:none;
+    }
 }
