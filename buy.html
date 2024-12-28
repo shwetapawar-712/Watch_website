@@ -11,7 +11,7 @@
             font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f3f4f6, #e8eaed);
+            background: url(back.avif)no-repeat center center/cover;;
             color: #333;
         }
 
@@ -39,7 +39,7 @@
         .order-form-header p {
             font-size: 1rem;
             margin: 5px 0 0;
-            color: #ccc;
+            color: #3c3c3c;
         }
 
         .order-form-container .form-content {
@@ -140,27 +140,36 @@
         #paymentFormContainer h3 {
             margin-bottom: 10px;
         }
-        .product-image {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      background: #ddd;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      transition: transform 0.3s ease;
+       
+        @media (max-width: 768px) {
+    .order-form-container {
+        width: 90%; /* Make the form take up 90% of the screen width */
+        margin: 20px auto; /* Adjust margin for better spacing */
     }
 
-    .product-image img {
-      max-width: 100%;
-      max-height: 100%;
+    .product-image {
+        width: 80px; /* Reduce the product image size */
+        height: 80px;
     }
 
-    .product-image:hover {
-      transform: scale(1.1);
+    .order-form-header h1 {
+        font-size: 2rem; /* Make the header text smaller */
     }
+
+    .order-form-header p {
+        font-size: 0.9rem; /* Reduce the subheading font size */
+    }
+
+    .order-form-container input,
+    .order-form-container select,
+    .order-form-container textarea {
+        font-size: 0.9rem; /* Make input text smaller */
+    }
+
+    .order-form-container button {
+        font-size: 1rem; /* Adjust button text size */
+    }
+}
 
     </style>
 </head>
@@ -169,11 +178,9 @@
 <div class="order-form-container">
     <div class="order-form-header">
         <h1>Order Your Luxury Watch</h1>
-        <p>Exquisite craftsmanship delivered to your door <span>&#9733;</span></p>
+       
     </div>
-    <div class="product-image">
-        <img src="./logo.jpg" alt="Product Preview">
-      </div>
+    
     <div class="form-content">
         <form id="orderForm">
             <div class="form-group">
