@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,23 +63,26 @@
             margin-top: 20px;
             font-weight: bold;
         }
-
-        .back-home {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .back-home button {
+ .back-home button, .checkout-button button {
             background-color: #007bff;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-home button:hover, .checkout-button button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-home button {
+            background-color: #28a745;
         }
 
         .back-home button:hover {
-            background-color: #0056b3;
+            background-color: #1e7d32;
         }
     </style>
 </head>
@@ -88,8 +94,13 @@
         </ul>
         <div class="empty-cart" id="empty-cart-message">Your cart is empty!</div>
         <div class="total-price" id="total-price" style="display: none;"></div>
-        <div class="back-home" id="back-home-section" style="display: none;">
-            <button id="back-home-btn">Checkout</button>
+      <div class="back-home">
+                <button id="back-home-btn">Back to Home</button>
+            </div>
+            <div class="checkout-button">
+                <button id="checkout-btn">
+                    <i class="fa fa-shopping-cart"></i> Checkout
+                  </button>
         </div>
     </div>
     <script>
@@ -162,6 +173,9 @@
        
            document.getElementById('back-home-btn').addEventListener('click', () => {
                window.location.href = 'buy.html';
+           });
+             document.getElementById('back-home-btn').addEventListener('click', () => {
+               window.location.href = 'home.html'; 
            });
        
            updateCartDisplay();
