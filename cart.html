@@ -3,35 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
     <title>Your Cart</title>
     <link rel="stylesheet" href="styles.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            color: #333;
         }
-    .cart-container {
+
+        .cart-container {
             padding: 20px;
             max-width: 800px;
             margin: 20px auto;
             background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            animation: fadeIn 0.5s;
         }
-    .cart-title {
-            font-size: 24px;
+
+        .cart-title {
+            font-size: 28px;
             margin-bottom: 20px;
+            text-align: center;
+            color: #444;
         }
-   .cart-items {
+
+        .cart-items {
             list-style: none;
             padding: 0;
+            font-size: 1.2rem;
         }
-     .cart-item {
+
+        .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,50 +48,66 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 8px;
+            background: #f9f9f9;
         }
-   .remove-item {
+
+        .remove-item {
             background-color: #ff4d4d;
             color: white;
             border: none;
             padding: 5px 10px;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
-   .remove-item:hover {
+
+        .remove-item:hover {
             background-color: #cc0000;
         }
+
         .empty-cart {
             text-align: center;
             margin-top: 20px;
             font-size: 18px;
             color: #666;
+            font-style: italic;
         }
-   .total-price {
-            font-size: 18px;
+
+        .total-price {
+            font-size: 20px;
             text-align: right;
             margin-top: 20px;
             font-weight: bold;
+            color: #444;
         }
- .back-home button, .checkout-button button {
+
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .back-home-btn-container {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;              
+            justify-content: center;    
+            gap: 20px;                  
+        }
+
+        .back-home button, #back-to-home-btn,#checkout-btn {
             background-color: #007bff;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
-
-        .back-home button:hover, .checkout-button button:hover {
+        .material-icons{
+            padding: 0px;
+        }
+        .back-home button:hover, #back-to-home-btn:hover {
             background-color: #0056b3;
-        }
-
-        .back-home button {
-            background-color: #28a745;
-        }
-
-        .back-home button:hover {
-            background-color: #1e7d32;
         }
     </style>
 </head>
@@ -94,13 +119,13 @@
         </ul>
         <div class="empty-cart" id="empty-cart-message">Your cart is empty!</div>
         <div class="total-price" id="total-price" style="display: none;"></div>
-      <div class="back-home">
-                <button id="back-home-btn">Back to Home</button>
+        <div class="action-buttons" style="display: none;" id="action-buttons">
+            <div class="back-home">
+                <button id="back-home-btn"><span class="material-icons">shopping_cart</span> Back to Home</button>
             </div>
             <div class="checkout-button">
-                <button id="checkout-btn">
-                    <i class="fa fa-shopping-cart"></i> Checkout
-                  </button>
+                <button id="checkout-btn"><span class="material-icons">payment</span> Checkout</button>
+            </div>
         </div>
     </div>
     <script>
@@ -108,31 +133,31 @@
            const cartItemsContainer = document.getElementById('cart-items');
            const emptyCartMessage = document.getElementById('empty-cart-message');
            const totalPriceElement = document.getElementById('total-price');
-           const backHomeSection = document.getElementById('back-home-section');
-       
+           const actionButtons = document.getElementById('action-buttons');
+
            // Load cart data from localStorage or use an empty array
            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-       
+
            const calculateTotalPrice = () => {
                return cart.reduce((total, item) => {
                    const itemPrice = parseFloat(item.price); 
                    return total + (isNaN(itemPrice) ? 0 : itemPrice); 
                }, 0);
            };
-       
+
            const updateCartDisplay = () => {
                cartItemsContainer.innerHTML = '';
                let totalPrice = calculateTotalPrice();
-       
+
                if (cart.length === 0) {
                    emptyCartMessage.style.display = 'block';
                    totalPriceElement.style.display = 'none';
-                   backHomeSection.style.display = 'none';
+                   actionButtons.style.display = 'none';
                } else {
                    emptyCartMessage.style.display = 'none';
                    totalPriceElement.style.display = 'block';
-                   backHomeSection.style.display = 'block';
-       
+                   actionButtons.style.display = 'flex';
+
                    cart.forEach((item, index) => {
                        const cartItem = document.createElement('li');
                        cartItem.classList.add('cart-item');
@@ -142,11 +167,11 @@
                        `;
                        cartItemsContainer.appendChild(cartItem);
                    });
-       
+
                    totalPriceElement.textContent = `Total: Rs. ${totalPrice.toFixed(2)}`;
                }
            };
-       
+
            const addItemToCart = (name, price) => {
                const numericPrice = parseFloat(price);
                if (isNaN(numericPrice)) {
@@ -157,29 +182,30 @@
                localStorage.setItem('cart', JSON.stringify(cart));
                updateCartDisplay();
            };
-       
+
            const removeItem = (index) => {
                cart.splice(index, 1);
                localStorage.setItem('cart', JSON.stringify(cart));
                updateCartDisplay();
            };
-       
+
            cartItemsContainer.addEventListener('click', (e) => {
                if (e.target.classList.contains('remove-item')) {
                    const index = e.target.getAttribute('data-index');
                    removeItem(index);
                }
            });
-       
+
            document.getElementById('back-home-btn').addEventListener('click', () => {
-               window.location.href = 'buy.html';
+               window.location.href = 'index.html'; // Redirect to the home page
            });
-             document.getElementById('back-home-btn').addEventListener('click', () => {
-               window.location.href = 'home.html'; 
+
+           document.getElementById('checkout-btn').addEventListener('click', () => {
+               window.location.href = 'checkout.html'; // Redirect to the checkout page
            });
-       
+
            updateCartDisplay();
        });
-   </script>
+    </script>
 </body>
 </html>
