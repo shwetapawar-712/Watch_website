@@ -42,14 +42,14 @@
         margin-bottom: 25px;
         letter-spacing: 2px;
       }
-     label {
+      label {
         font-size: 1rem;
         color: #fff;
         margin-bottom: 8px;
         display: block;
         font-weight: 600;
       }
-     input {
+      input {
         width: 100%;
         padding: 12px 20px;
         margin: 15px 0;
@@ -61,27 +61,28 @@
         color: #fff;
         transition: all 0.3s ease;
       }
-    input:focus {
+      input:focus {
         border-color: #f1c40f;
         box-shadow: 0 0 8px rgba(241, 196, 15, 0.6);
-      }button {
+      }
+      button {
         width: 100%;
         padding: 15px;
-        background: #f1c40f;
+        background-color: #f1c40f;
         color: #fff;
         border: none;
         border-radius: 8px;
         font-size: 1.2rem;
         font-weight: bold;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: background-color 0.3s ease;
         margin-top: 15px;
       }
 
       button:hover {
         background: #d4ac0d;
       }
-   .redirect-link {
+      .redirect-link {
         text-align: center;
         font-size: 1rem;
         margin-top: 20px;
@@ -94,7 +95,8 @@
         font-weight: 500;
         transition: color 0.3s ease;
       }
-    .redirect-link a:hover {
+
+      .redirect-link a:hover {
         color: #d4ac0d;
         text-decoration: underline;
       }
@@ -162,17 +164,24 @@
 
           const user = localStorage.getItem(username);
           if (!user) {
-            alert("User does not exist. Please Sign Up please.");
+            alert("User does not exist. Please Sign Up.");
             return;
           }
 
           const userData = JSON.parse(user);
 
           if (userData.password !== password) {
-            alert("Incorrect password. Please try again. Sign Up");
+            alert("Incorrect password. Please try again.");
             return;
           }
-          window.location.href = "home.html";
+
+        
+          alert("Login successful!");
+
+          // After login, redirect user to the page they were on before login
+          const redirectTo = sessionStorage.getItem('redirectTo') || 'index.html'; // Default to homepage
+          sessionStorage.removeItem('redirectTo'); // Remove the redirect URL from session storage
+          window.location.href = redirectTo; // Redirect user
         });
     </script>
   </body>
