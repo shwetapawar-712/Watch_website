@@ -69,11 +69,11 @@
         </div>
 
         <ul id="nav-links">
-            <li><a href="home.html#brands">Brand</a></li>
+            <li><a href="index.html#brands">Brand</a></li>
             <li><a href="men.html">Men</a></li>
             <li><a href="women.html">Women</a></li>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="index.html">Login
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login
                 <span id="icon-blog" class="material-icons">login</span></a></li>
             <li><a href="about.html">About Us
                 <span id="icon-store" class="material-icons">info</span> </a></li>
@@ -202,12 +202,10 @@
             <a href="buy.html" class="shop-now">Shop Now</a>
             <button class="add-to-cart">Add to Cart</button>
         </div>
-       
-    
-    </div>
+       </div>
 </section>
+<button id="login-simulate">Simulate Login</button>
 
-<!-- Cart Popup -->
 <div id="cart-popup">
     <h3>Your Cart</h3>
     <ul id="cart-items"></ul>
@@ -267,112 +265,91 @@
     }
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // JavaScript for Contact Popup
-        const contactIcon = document.getElementById('icon-contact');
-        const contactPopup = document.getElementById('contact-popup');
-        const closeContactBtn = document.getElementById('close-contact');
-    
-        // Show Contact Popup
-        contactIcon.addEventListener('click', () => {
-            contactPopup.style.display = 'block';
-        });
-    
-        // Close Contact Popup
-        closeContactBtn.addEventListener('click', () => {
-            contactPopup.style.display = 'none';
-        });
-    
-        // JavaScript for Cart Functionality
-        let cart = []; // Array to hold cart items
-        const cartPopup = document.getElementById('cart-popup');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const closeCartBtn = document.getElementById('close-cart');
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    
-        // Open Cart Popup
-        const openCart = () => {
-            cartPopup.style.display = 'block';
-        };
-    
-        // Close Cart Popup
-        closeCartBtn.addEventListener('click', () => {
-            cartPopup.style.display = 'none';
-        });
-    
-        // Add item to the cart array and update display
-        const addToCart = (name, price) => {
-            cart.push({ name, price });
-            updateCartDisplay();
-            alert(`${name} added to cart!`);
-        };
-    
-        // Update the cart items in the popup
-        const updateCartDisplay = () => {
-            cartItemsContainer.innerHTML = ''; // Clear existing items
-    
-            cart.forEach((item, index) => {
-                const cartItem = document.createElement('li');
-                cartItem.textContent = `${item.name} - Rs. ${item.price}`;
-    
-                // Add a Remove button to each cart item
-                const removeButton = document.createElement('button');
-                removeButton.textContent = 'Remove';
-                removeButton.style.marginLeft = '10px';
-                removeButton.onclick = () => removeItem(index);
-                cartItem.appendChild(removeButton);
-    
-                cartItemsContainer.appendChild(cartItem);
-            });
-        };
-    
-        // Remove item from the cart array and update display
-        const removeItem = (index) => {
-            cart.splice(index, 1); // Remove item from cart
-            updateCartDisplay(); // Refresh cart display
-        };
-    
-        // Add event listeners to all "Add to Cart" buttons
-        addToCartButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const product = button.closest('.product');
-                const name = product.getAttribute('data-name');
-                const price = product.getAttribute('data-price');
-                addToCart(name, price);
-            });
-        });
-    });
-</script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-const cartIcon = document.getElementById('icon-shopping_cart');
+document.addEventListener('DOMContentLoaded', () => {
+const contactIcon = document.getElementById('icon-contact');
+const contactPopup = document.getElementById('contact-popup');
+const closeContactBtn = document.getElementById('close-contact');
 
+contactIcon.addEventListener('click', () => {
+  contactPopup.style.display = 'block';
+});
+
+closeContactBtn.addEventListener('click', () => {
+  contactPopup.style.display = 'none';
+});
+});
+</script>   
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const shopNowButtons = document.querySelectorAll('.shop-now');
+const cartPopup = document.getElementById('cart-popup');
+const cartItemsContainer = document.getElementById('cart-items');
+const closeCartBtn = document.getElementById('close-cart');
+const cartIcon = document.getElementById('icon-shopping_cart');
+const loginSimulationButton = document.getElementById('login-simulate');
+
+// Check login status
+const isLoggedIn = () => {
+return sessionStorage.getItem('isLoggedIn') === 'true';
+};
+addToCartButtons.forEach((button) => {
+button.addEventListener('click', (event) => {
+    const product = button.closest('.product');
+    const name = product.getAttribute('data-name');
+    const price = product.getAttribute('data-price');
+    addToCart(name, price); 
+});
+});
+
+shopNowButtons.forEach((button) => {
+button.addEventListener('click', (event) => {
+    if (!isLoggedIn()) {
+        event.preventDefault(); // Prevent redirect if not logged in
+        alert('You need to login to shop now!');
+        sessionStorage.setItem('redirectTo', window.location.href); 
+        window.location.href = 'login.html'; 
+    }
+});
+});
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Add item to cart and save to localStorage
 const addToCart = (name, price) => {
-    cart.push({ name, price });
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${name} added to cart!`);
+cart.push({ name, price });
+localStorage.setItem('cart', JSON.stringify(cart));
+alert(`${name} added to cart!`);
+updateCartDisplay();
+};
+const updateCartDisplay = () => {
+cartItemsContainer.innerHTML = ''; 
+
+cart.forEach((item) => {
+    const cartItem = document.createElement('li');
+    cartItem.textContent = `${item.name} - Rs. ${item.price}`;
+    cartItemsContainer.appendChild(cartItem);
+});
 };
 
-addToCartButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        const product = button.closest('.product');
-        const name = product.getAttribute('data-name');
-        const price = product.getAttribute('data-price');
-        addToCart(name, price);
-    });
-});
-
-// Navigate to cart page on cart icon click
 cartIcon.addEventListener('click', () => {
-    window.location.href = 'cart.html';
-});
+window.location.href = 'cart.html';
 });
 
-  </script>         
-           
+if (loginSimulationButton) {
+loginSimulationButton.addEventListener('click', () => {
+    sessionStorage.setItem('isLoggedIn', 'true');
+    alert('Logged in successfully!');
+
+    const redirectTo = sessionStorage.getItem('redirectTo') || 'index.html'; 
+    sessionStorage.removeItem('redirectTo');
+    window.location.href = 'buy.html'; 
+});
+}
+
+if (!isLoggedIn()) {
+sessionStorage.setItem('redirectTo', window.location.href);
+}
+});
+
+</script>           
 </body>
 </html>
