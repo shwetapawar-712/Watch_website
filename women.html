@@ -202,6 +202,7 @@
             </div>
         </footer>
 
+
         <script>
             function toggleMenu() {
                 const navLinks = document.getElementById('nav-links');
@@ -237,8 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = () => {
         return sessionStorage.getItem('isLoggedIn') === 'true';
     };
-
-
     addToCartButtons.forEach((button) => {
         button.addEventListener('click', (event) => {
             const product = button.closest('.product');
@@ -248,19 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle Shop Now button click (checks if user is logged in)
-    shopNowButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            if (!isLoggedIn()) {
-                event.preventDefault(); 
-                alert('You need to login to shop now!');
-                sessionStorage.setItem('redirectTo', window.location.href); 
-                window.location.href = 'login.html'; 
-            }
-        });
-    });
-
-    // Add item to cart and save to localStorage
+  
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const addToCart = (name, price) => {
@@ -269,8 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`${name} added to cart!`);
         updateCartDisplay();
     };
-
-    // Update the cart items in the popup (cart popup is still available if needed)
     const updateCartDisplay = () => {
         cartItemsContainer.innerHTML = ''; 
 
@@ -281,28 +266,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Handle cart icon click to redirect to cart page
     cartIcon.addEventListener('click', () => {
         window.location.href = 'cart.html';
     });
 
-    // Simulate login for demonstration purposes
+    document.addEventListener('DOMContentLoaded', () => {
+    const shopNowButtons = document.querySelectorAll('.shop-now');
+    const loginSimulationButton = document.getElementById('login-simulate');
+    const cartIcon = document.getElementById('icon-shopping_cart');
+    
+    const isLoggedIn = () => sessionStorage.getItem('isLoggedIn') === 'true';
+
+    
+    shopNowButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            if (!isLoggedIn()) {
+                event.preventDefault(); 
+                alert('You need to login to shop now!');
+                sessionStorage.setItem('redirectTo', 'buy.html'); 
+                window.location.href = 'login.html'; 
+            }
+        });
+    });
+
+    cartIcon.addEventListener('click', () => {
+        window.location.href = 'cart.html'; 
+    });
+
+    
     if (loginSimulationButton) {
         loginSimulationButton.addEventListener('click', () => {
-            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('isLoggedIn', 'true'); 
             alert('Logged in successfully!');
-
             const redirectTo = sessionStorage.getItem('redirectTo') || 'index.html'; 
-            sessionStorage.removeItem('redirectTo');
-            window.location.href = 'buy.html'; 
+            sessionStorage.removeItem('redirectTo'); 
+            window.location.href = redirectTo; // 
         });
     }
-
-    if (!isLoggedIn()) {
-        sessionStorage.setItem('redirectTo', window.location.href);
-    }
 });
-
-</script>
+});
+</script>        
 </body>
 </html>
