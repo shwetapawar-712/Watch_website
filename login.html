@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Luxury Watches</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url('https://via.placeholder.com/1500x1500?text=Luxury+Watches') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .login-container {
+        background: rgba(0, 0, 0, 0.7); 
+        padding: 40px 60px;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        max-width: 450px;
+        animation: fadeInUp 1s ease-in-out;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: 'Playfair Display', serif;
+        color: #f1c40f;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+      }
+      label {
+        font-size: 1rem;
+        color: #fff;
+        margin-bottom: 8px;
+        display: block;
+        font-weight: 600;
+      }
+      input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 15px 0;
+        border: 2px solid #444;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      input:focus {
+        border-color: #f1c40f;
+        box-shadow: 0 0 8px rgba(241, 196, 15, 0.6);
+      }
+      button {
+        width: 100%;
+        padding: 15px;
+        background-color: #f1c40f;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 15px;
+      }
+
+      button:hover {
+        background: #d4ac0d;
+      }
+      .redirect-link {
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 20px;
+        color: #aaa;
+      }
+
+      .redirect-link a {
+        color: #f1c40f;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .redirect-link a:hover {
+        color: #d4ac0d;
+        text-decoration: underline;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .input-container {
+        position: relative;
+      }
+
+      .input-container input {
+        padding-left: 40px;
+      }
+
+      .input-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="input-container">
+          <label for="username">Username</label>
+          <i class="input-icon">💬</i>
+          <input type="text" id="username" placeholder="Enter your username" required />
+        </div>
+
+        <div class="input-container">
+          <label for="password">Password</label>
+          <i class="input-icon">🔒</i>
+          <input type="password" id="password" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit">Login</button>
+
+        <div class="redirect-link">
+          <p>Don't have an account? <a href="register.html">Sign up here</a></p>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          const user = localStorage.getItem(username);
+          if (!user) {
+            alert("User does not exist. Please Sign Up.");
+            return;
+          }
+
+          const userData = JSON.parse(user);
+
+          if (userData.password !== password) {
+            alert("Incorrect password. Please try again.");
+            return;
+          }
+
+        
+          alert("Login successful!");
+
+          // After login, redirect user to the page they were on before login
+          const redirectTo = sessionStorage.getItem('redirectTo') || 'index.html'; // Default to homepage
+          sessionStorage.removeItem('redirectTo'); // Remove the redirect URL from session storage
+          window.location.href = redirectTo; // Redirect user
+        });
+    </script>
+  </body>
+</html>
