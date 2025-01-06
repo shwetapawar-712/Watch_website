@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="brand.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    /* Cart Popup Styles */
+    #cart-popup {
+        display: none;
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    #cart-popup h3 {
+        margin-top: 0;
+    }
+
+    #cart-items {
+        list-style: none;
+        padding: 0;
+    }
+
+    #cart-items li {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #cart-popup button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    #cart-popup button:hover {
+        background-color: #0056b3;
+    }
+
+    #close-cart {
+        background-color: #ff4d4d;
+    }
+
+    #close-cart:hover {
+        background-color: #cc0000;
+    }
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+        <div class="logo">
+            <img src="./logo.png" alt="">
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="index.html#brands">Brand</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login
+                <span id="icon-blog" class="material-icons">login</span></a></li>
+            <li><a href="about.html">About Us
+                <span id="icon-store" class="material-icons">info</span> </a></li>
+        </ul>
+        <span class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </span>
+    </nav>
+        <div class="search-block">
+            <div class="search-bar">
+                <input type="text" placeholder="Search here...">
+                <img src="./search-icon.png" alt="">
+            </div>
+
+
+      </div>
+     <span id="icon-contact" class="material-icons">phone</span>
+     <span id="icon-like" class="material-icons">favorite</span>
+      <span id="icon-shopping_cart" class="material-icons">shopping_cart</span>
+</div><div id="contact-popup" class="popup-card">
+<h3>Contact Us</h3>
+<p>Email: support@luxurywatches.com</p>
+<p>Phone: +1 234 567 890</p>
+<button id="close-contact" class="close-btn">Close</button>
+</div>
+<div id="cart-popup" class="popup-card">
+<h3>Your Cart</h3>
+<ul id="cart-items"></ul>
+<button id="close-cart" class="close-btn">Close</button>
+</div>
+    </header>
+        <section  style="background-image: url('./versace-background.jpg'); height: 30vh; background-size: cover; background-position: center;">
+        </section>
+        <section class="products">
+            <h2 class="section-titles">Versace Watches-men </h2>
+            <div class="product-list">
+                <div class="product" data-name="Versace Dominus Skeleton Watch" data-price="46000">
+                    <img src="./v-1.avif" alt="Watch 1">
+                    <div class="product-title">Versace Dominus Skeleton Watch</div>
+                    <div class="product-price">Rs.46,000</div>
+                    <a href="buy.html" class="shop-now">Shop Now</a>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Versace New Watch" data-price="67000">
+                    <img src="./v-2.avif" alt="Watch 2">
+                    <div class="product-title">Versace New Watch</div>
+                    <div class="product-price">Rs.67,000</div>
+                    <a href="buy.html" class="shop-now">Shop Now</a>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                    <div class="product" data-name="V-Helics Watch" data-price="135000">
+                    <img src="./v-3.avif" alt="Watch 3">
+                    <div class="product-title">V-Helics Watch</div>
+                    <div class="product-price">Rs.1,35,000</div>
+                    <a href="buy.html" class="shop-now">Shop Now</a>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-name="V-Legend Chrono watch" data-price="139000">
+                    <img src="./v-4.avif" alt="Watch 1">
+                    <div class="product-title">V-Legend Chrono watch</div>
+                    <div class="product-price">Rs.1,39,000</div>
+                    <a href="buy.html" class="shop-now">Shop Now</a>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+               
+                <div class="product" data-name="Medusa Deco Watch" data-price="210000">
+                    <img src="./v-5.avif" alt="Watch 1">
+                    <div class="product-title">Medusa Deco Watch</div>
+                    <div class="product-price">Rs.2,10,000</div>
+                    <a href="buy.html" class="shop-now">Shop Now</a>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Versace Chrono X Watch" data-price="120000">
+                    <img src="./v-6.avif" alt="Watch 1">
+                    <div class="product-title">Versace Chrono X Watch</div>
+                    <div class="product-price">Rs.1,20,000</div>
+                    <a href="buy.html" class="shop-now">Shop Now</a>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section><hr>
+        <section class="products">
+<h2 class="section-title2">Versace Watches-Women</h2>
+<section class="products">
+    <div class="product-list">
+        <div class="product" data-name="Versace Mosaic Diamond Watch" data-price="210000">
+            <img src="./vw-1.avif" alt="Watch 1">
+            <div class="product-title">Versace Mosaic Diamond Watch</div>
+            <div class="product-price">Rs.2,10,000</div>
+            <a href="buy.html" class="shop-now">Shop Now</a>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Antares Lady Watch" data-price="196000">
+            <img src="./vw-2.avif" alt="Watch 2">
+            <div class="product-title">Antares Lady Watch</div>
+            <div class="product-price">Rs.1,96,000</div>
+            <a href="buy.html" class="shop-now">Shop Now</a>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+            <div class="product" data-name="Gerca Logo Moonphase Diamond watch" data-price="139000">
+            <img src="./vw-3.avif" alt="Watch 3">
+            <div class="product-title">Gerca Logo Moonphase Diamond watch</div>
+            <div class="product-price">Rs.1,39,000</div>
+            <a href="buy.html" class="shop-now">Shop Now</a>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Versace Women's Diva Chain Watch" data-price="18000">
+            <img src="./vw-4.avif" alt="Watch 1">
+            <div class="product-title">Versace Women's Diva Chain Watch</div>
+            <div class="product-price">Rs.18,000</div>
+            <a href="buy.html" class="shop-now">Shop Now</a>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+       
+        <div class="product" data-name="Versace VSP watch for Women" data-price="56000">
+            <img src="./vw-5.webp" alt="Watch 1">
+            <div class="product-title">Versace VSP watch for Women</div>
+            <div class="product-price">Rs.56,000</div>
+            <a href="buy.html" class="shop-now">Shop Now</a>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Gerca Sphere Watch" data-price="123000">
+            <img src="./vw-6.avif" alt="Watch 1">
+            <div class="product-title">Gerca Sphere Watch</div>
+            <div class="product-price">Rs.1,23,000</div>
+            <a href="buy.html" class="shop-now">Shop Now</a>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+       </div>
+</section>
+<button id="login-simulate">Simulate Login</button>
+
+<div id="cart-popup">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <button id="close-cart">Close</button>
+</div>
+<div id="cart-popup">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <button id="close-cart">Close</button>
+</div>
+   <footer>
+    <div class="footer-container">
+        <div class="footer-brands">
+            <p>Our Partners:</p>
+            <div class="brands">
+                <span>Cartier</span>
+                <span>Armani</span>
+                <span>Tsovet</span>
+                <span>Omega</span>
+                <span>Rolex</span>
+            </div>
+        </div>
+        <div class="follow">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <i class="fab fa-facebook facebook-icon"></i>
+                <i class="fab fa-google google-icon"></i>
+                <i class="fab fa-linkedin linkedin-icon"></i>
+                <i class="fab fa-twitter twitter-icon"></i>
+                <i class="fab fa-youtube youtube-icon"></i>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div>
+                <h4>MY ACCOUNT</h4>
+                <p>Sign In</p>
+                <p>Order History</p>
+            </div>
+            <div>
+                <h4>INFORMATION</h4>
+                <p>About Us</p>
+                <p>Terms & Conditions</p>
+            </div>
+            <div>
+                <h4>NEWSLETTER</h4>
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <p class="footer-copy">&copy; 2024 Luxury Watches. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show');
+    }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const contactIcon = document.getElementById('icon-contact');
+const contactPopup = document.getElementById('contact-popup');
+const closeContactBtn = document.getElementById('close-contact');
+
+contactIcon.addEventListener('click', () => {
+  contactPopup.style.display = 'block';
+});
+
+closeContactBtn.addEventListener('click', () => {
+  contactPopup.style.display = 'none';
+});
+});
+</script>   
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const shopNowButtons = document.querySelectorAll('.shop-now');
+const cartPopup = document.getElementById('cart-popup');
+const cartItemsContainer = document.getElementById('cart-items');
+const closeCartBtn = document.getElementById('close-cart');
+const cartIcon = document.getElementById('icon-shopping_cart');
+const loginSimulationButton = document.getElementById('login-simulate');
+
+// Check login status
+const isLoggedIn = () => {
+return sessionStorage.getItem('isLoggedIn') === 'true';
+};
+addToCartButtons.forEach((button) => {
+button.addEventListener('click', (event) => {
+    const product = button.closest('.product');
+    const name = product.getAttribute('data-name');
+    const price = product.getAttribute('data-price');
+    addToCart(name, price); 
+});
+});
+
+shopNowButtons.forEach((button) => {
+button.addEventListener('click', (event) => {
+    if (!isLoggedIn()) {
+        event.preventDefault(); // Prevent redirect if not logged in
+        alert('You need to login to shop now!');
+        sessionStorage.setItem('redirectTo', window.location.href); 
+        window.location.href = 'login.html'; 
+    }
+});
+});
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+const addToCart = (name, price) => {
+cart.push({ name, price });
+localStorage.setItem('cart', JSON.stringify(cart));
+alert(`${name} added to cart!`);
+updateCartDisplay();
+};
+const updateCartDisplay = () => {
+cartItemsContainer.innerHTML = ''; 
+
+cart.forEach((item) => {
+    const cartItem = document.createElement('li');
+    cartItem.textContent = `${item.name} - Rs. ${item.price}`;
+    cartItemsContainer.appendChild(cartItem);
+});
+};
+
+cartIcon.addEventListener('click', () => {
+window.location.href = 'cart.html';
+});
+
+if (loginSimulationButton) {
+loginSimulationButton.addEventListener('click', () => {
+    sessionStorage.setItem('isLoggedIn', 'true');
+    alert('Logged in successfully!');
+
+    const redirectTo = sessionStorage.getItem('redirectTo') || 'index.html'; 
+    sessionStorage.removeItem('redirectTo');
+    window.location.href = 'buy.html'; 
+});
+}
+
+if (!isLoggedIn()) {
+sessionStorage.setItem('redirectTo', window.location.href);
+}
+});
+
+</script>           
+</body>
+</html>
