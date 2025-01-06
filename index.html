@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Watch Store</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ </head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./logo.png" alt="">
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html#brands">Brand</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login
+                    <span id="icon-blog" class="material-icons">login</span></a></li>
+                <li><a href="about.html">About Us
+                    <span id="icon-store" class="material-icons">info</span> </a></li>
+            </ul>
+            <span class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </span>
+        </nav>
+    </div>
+        <div class="search-block">
+            <div class="search-bar">
+                <input type="text" placeholder="Search here...">
+                <img src="./search-icon.png" alt="">
+            </div>
+            <span id="icon-contact" class="material-icons">phone</span>
+            <span id="icon-shopping_cart" class="material-icons">shopping_cart</span>
+        </div><div id="contact-popup" class="popup-card">
+            <h3>Contact Us</h3>
+            <p>Email: support@luxurywatches.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <button id="close-contact" class="close-btn">Close</button>
+        </div>
+        <div id="cart-popup" class="popup-card">
+            <h3>Your Cart</h3>
+            <ul id="cart-items"></ul>
+            <button id="close-cart" class="close-btn">Close</button>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>LUXURY DESIGN IN CASTE</h1>
+            <p>Always gives you a flawless beauty</p>
+            <div class="buttons">
+                <a href="about.html" class="btn-outline">ABOUT US</a>
+            </div>
+        </div>
+    </section>
+    <section class="promo">
+        <div class="promo-emi">
+            <span id="icon-money" class="material-icons">attach_money</span>
+            <h3>No Cost EMI above 8k </h3></div>
+        <div class="promo-ship">
+            <span id="icon-ship" class="material-icons">shopping_cart</span>
+            <h3>Ship in 24 Hrs</h3></div>
+        <div class="promo-warran">
+            <span id="icon-home" class="material-icons">home</span>
+            <h3>1 yr Warranty</h3></div>   
+        <div class="promo-cod">
+            <span id="icon-local" class="material-icons">local_shipping</span>
+            <h3>COD available up to 20K</h3></div>   
+        <div class="promo-wallet">
+            <span id="icon-wallet" class="material-icons">wallet</span>
+            <h3>10% off on first purchase!!</h3></div>   
+    </section>
+    <section class="products">
+        <h2 class="section-title">Best Sellers | Feature | New Arrivals</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="./watch1.webp" alt="Watch 1">
+                <div class="product-title">Digital Beige Dial Watch</div>
+                <a href="buy.html">$195.00</a>
+            </div>
+            <div class="product">
+                <img src="./watch2.jpg" alt="Watch 2">
+                <div class="product-title">Nwe Digital Grey Dial Watch</div>
+                <a href="buy.html">$89.00.00</a>
+            </div>
+            <div class="product">
+                <img src="./watch3.webp" alt="Watch 3">
+                <div class="product-title">Timex Analog Dial Watch</div>
+                <a href="buy.html">$134.00</a>
+            </div>
+            <div class="product">
+                <img src="./watch4.jpg" alt="Watch 4">
+                <div class="product-title">GC- New Collect VSP Watch</div>
+                <a href="buy.html">$145.00</a>
+            </div>
+        </div>
+    </section>
+    <section class="banner">
+        <div class="banner-text">
+            <h2>The Flash Sale is Live !!</h2>
+            <p>At last! The perfect gift is here..</p>
+            <a href="buy.html" class="btn-outline">BUY NOW</a>
+        </div>
+    </section>
+    <section class="brands-section"id="brands">
+        <h2>Our Brands</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" id="prevBtn">&larr;</button>
+            <div class="carousel" id="carousel">
+                <div class="carousel-item"><a href="gc-watch.html"><img src="./brand1.avif" alt="gc-watch"></a></div>
+                <div class="carousel-item"><a href="timex-watch.html"><img src="./brand2.avif" alt="Brand 2"></a></div>
+                <div class="carousel-item"><a href="versace.html"><img src="./brand3.avif" alt="Brand 3"></a></div>
+                <div class="carousel-item"><a href="guess.html"><img src="./brand5.avif" alt="Brand 4"></a></div>
+                <div class="carousel-item"><a href=""><img src="./brand4.avif" alt="Brand 5"></a></div>
+                <div class="carousel-item"><a href=""><img src="./brand6.avif" alt="Brand 6"></a></div>
+            </div>
+            <button class="carousel-btn next-btn" id="nextBtn">&rarr;</button>
+        </div>
+        <section class="trending-articles">
+            <h2>TRENDING ARTICLES</h2>
+            <div class="article-card-container">
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="./trend1.avif" alt="Trending Watch">
+                    </div>
+                    <div class="article-content">
+                        <span class="badge">ROUND-UP</span>
+                        <h3 class="article-title">
+                            The Appeal Of Astronomical Complications: Presenting Christiaan Van Der Klaauw And Their Top Watches
+                        </h3>
+                        <p>The undeniable romance of celestial bodies far trumps the usefulness debate of a moon phase
+                             indicator on a wristwatch. This romance is what the Netherlands-based watchmakers Christiaan van Der Klaauw 
+                             celebrate through their astronomical timepieces. From December 13, 2024 </p>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="./trend2.avif" alt="Trending Watch">
+                    </div>
+                    <div class="article-content">
+                        <span class="badge">SPOTLIGHT</span>
+                        <h3 class="article-title">
+                            Ultramarine, Sage And Midnight—The New Dial Hues Of The Girard-Perregaux Laureato</h3>
+                        <p>The Laureato timepieces from Swiss maison Girard-Perregaux are always in the conversation while discussing the best luxury sports watches of all time, 
+                            famous for their iconic case design. In 2024, the collection receives two new versions in 
+                            pink gold—in ultramarine blue and sage green </p>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="trend3.avif" alt="Trending Watch">
+                    </div>
+                    <div class="article-content">
+                        <span class="badge">REVIEW</span>
+                        <h3 class="article-title">
+                            Dainty, Dazzling, And Delightful: Longines’ Mini DolceVita Is Now In Gold
+                        <p>After presenting the Mini DolceVita in stainless steel, the Swiss watchmaker launch the new models in yellow or rose gold. Available in four versions—two
+                             with diamonds and bracelets and the other two with leather straps and without diamonds—these new timepieces offer something for everyone </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-brands">
+                    <p>Our Partners:</p>
+                    <div class="brands">
+                        <span>Cartier</span>
+                        <span>Armani</span>
+                        <span>Tsovet</span>
+                        <span>Omega</span>
+                        <span>Rolex</span>
+                    </div></div>
+        
+                <div class="follow">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <i class="fab fa-facebook facebook-icon"></i>
+                        <i class="fab fa-google google-icon"></i>
+                        <i class="fab fa-linkedin linkedin-icon"></i>
+                        <i class="fab fa-twitter twitter-icon"></i>
+                        <i class="fab fa-youtube youtube-icon"></i>
+                    </div>
+                </div>
+        
+                <div class="footer-links">
+                    <div>
+                        <h4>MY ACCOUNT</h4>
+                        <p>Sign In</p>
+                        <p>Order History</p>
+                    </div>
+                    <div>
+                        <h4>INFORMATION</h4>
+                        <p>About Us</p>
+                        <p>Terms & Conditions</p>
+                    </div>
+                    <div>
+                        <h4>NEWSLETTER</h4>
+                        <input type="email" placeholder="Enter your email">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+             <p class="footer-copy">&copy; 2024 Luxury Watches. All rights reserved.</p></div>
+        </footer>
+        <script>
+            function toggleMenu() {
+                const navLinks = document.getElementById('nav-links');
+                navLinks.classList.toggle('show');
+            }
+        </script>
+        <script src="script.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactIcon = document.getElementById('icon-contact');
+            const contactPopup = document.getElementById('contact-popup');
+            const closeContactBtn = document.getElementById('close-contact');
+    
+            contactIcon.addEventListener('click', () => {
+                contactPopup.style.display = 'block';
+            });
+    
+            closeContactBtn.addEventListener('click', () => {
+                contactPopup.style.display = 'none';
+            });
+        
+            // JavaScript for Cart Functionality
+            let cart = []; 
+            const cartPopup = document.getElementById('cart-popup');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const closeCartBtn = document.getElementById('close-cart');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+            // Add item to the cart array and update display
+            const addToCart = (name, price) => {
+                cart.push({ name, price });
+                updateCartDisplay();
+                alert(`${name} added to cart!`);
+            };
+        });
+        
+            // Update the cart items in the popup
+            const updateCartDisplay = () => {
+                cartItemsContainer.innerHTML = ''; 
+        
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('li');
+                    cartItem.textContent = `${item.name} - Rs. ${item.price}`;
+        
+                    // Add a Remove button to each cart item
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.style.marginLeft = '10px';
+                    removeButton.onclick = () => removeItem(index);
+                    cartItem.appendChild(removeButton);
+        
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            };
+        
+            // Remove item from the cart array and update display
+            const removeItem = (index) => {
+                cart.splice(index, 1); 
+                updateCartDisplay(); 
+            };
+        
+            // Add event listeners to all "Add to Cart" buttons
+            addToCartButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const product = button.closest('.product');
+                    const name = product.getAttribute('data-name');
+                    const price = product.getAttribute('data-price');
+                    addToCart(name, price);
+                });
+            });
+    </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartIcon = document.getElementById('icon-shopping_cart');
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add item to cart and save to localStorage
+    const addToCart = (name, price) => {
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+    };
+
+    addToCartButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const product = button.closest('.product');
+            const name = product.getAttribute('data-name');
+            const price = product.getAttribute('data-price');
+            addToCart(name, price);
+        });
+    });
+
+    // Navigate to cart page on cart icon click
+    cartIcon.addEventListener('click', () => {
+        window.location.href = 'cart.html';
+    });
+});
+     
+        </script>
+    </body>
+    </html>
+   
